@@ -1,6 +1,10 @@
 # node-red-contrib-home
 Home automation system on Node-RED with reusable nodes, flows and subflows
 
+**This is not an out of the box system!** 
+
+See it as a toolbox and a work in process. And it is only at the beginning and will grow as my system progress.
+
 ## quickstart
 
 - Node-RED
