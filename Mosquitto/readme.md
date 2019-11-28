@@ -1,6 +1,6 @@
 # mosquitto MQTT broker
 
-Enable **reteined** messages when send wis QOS=0
+Enable **retained** messages when send wis QOS=0
 
 ```
 max_queued_messages 1000
