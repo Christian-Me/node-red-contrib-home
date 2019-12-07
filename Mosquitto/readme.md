@@ -24,6 +24,6 @@ mqtt explorer is a great tool to inspect mqtt communication. Be aware! Messages 
 
 Please check if the retained flag is really set
 
-![retained message flagged correctly](.\screenshots\MQTT-Explorer-retained.png)
+![retained message flagged correctly](https://raw.githubusercontent.com/christian-me/node-red-contrib-home/master/Mosquitto/screenshots/MQTT-Explorer-retained.png)
 
 After restart of mqtt explorer you should immediately see the complete homie tree again. Then restart your broker and check if the data is still available.
