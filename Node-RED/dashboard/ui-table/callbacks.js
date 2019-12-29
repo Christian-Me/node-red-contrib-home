@@ -4,7 +4,7 @@
 columnMoved = function(column, columns){
     var newColumns=[];
     columns.forEach(function (column) {
-        newColumns.push({'field': column._column.field});
+        newColumns.push({'field': column._column.definition.field, 'title': column._column.definition.title});
     });
     this.send({topic:this.config.topic,ui_control:{callback:'columnMoved',columns:newColumns}});
 }

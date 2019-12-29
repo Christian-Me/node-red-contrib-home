@@ -2,7 +2,7 @@
 
 ## prebuild firmware
 
-in the folder **firmware** you will find recent beta builds of my work. Feel free to test. Comments are always welcome
+in the folder **firmware** you will find recent **beta** builds especialy arround the homie convention . Feel free to test. Comments are always welcome
 
 ## initial config
 

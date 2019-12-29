@@ -8,7 +8,7 @@ The homie convention auto discover feature is based on retained messages. The mq
 
 Small microcontrollers like the esp8266 using the common *pubsub* client library is unable to send proper QoS>0 messages due to memory and performance limitations. Below you find the necessary settings in the mosquitto.conf file to enable all features you need to store retained messages with QoS=0.
 
-Adjust max_queued_messages as you need, use mqtt-Explorer to determine how many messages needed (some devices can easily need 50 or more messages). Give some "headroom" for future devices. There should not be not to much demand on the database if every device behaves according to the convention. Raspberry Pi users be aware to perhaps increase the autosave interval to avoid excessive IO on yor SD card.
+Adjust max_queued_messages as you need, use mqtt-Explorer to determine how many messages needed (some devices can easily need 50 or more messages). Give some "headroom" for future devices. There should not be not to much demand on the database if every device behaves according to the convention. Raspberry Pi users be aware to perhaps increase the autosave interval to avoid excessive IO on your SD card.
 
 
 ```
