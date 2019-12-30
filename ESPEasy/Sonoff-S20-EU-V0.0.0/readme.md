@@ -1,4 +1,7 @@
 # Using the sonoff S20 (and others) with ESPEasy & homie
+
+version 0.0.2
+
 The sonoff S20 is a nice cheap wall plug including an ESP8266. It comes (currently) with only 1MB of flash memory which makes OTA updates difficult. For OTA you need minimum of twice the size of your firmware to do OTA updates. But as some of the flash is needed for other things even 512kb is too  (604Kb is the absolute maximum for the two step method)
 
 The current firmware if 611kb - So I have to strip down it a little bit more.... sorry
@@ -17,6 +20,7 @@ Don`t forget to hit the **submit** button!
 
 ## Controllers
 Add the homie controller
+
 parameter        |description
 -----------------|--------------------------
 Controller IP:| the IP Address of your MQTT broker (or URL)
@@ -45,7 +49,7 @@ set the debounce value what fits best for you (10-100ms)
 ## Rules
 You need two rules: 1
 1. will set the GPIO according to the boolean value received and acknowledge the new value with HomieValueSet
-2. Rule triggers when the hardware button is pressed. Depending on the current state of the relay it will send a /set command to the mqtt broker. This will then trigger rule #1. If you prefer immediate response of the relay you can set the GPO here too (uncomment the two lines) but you may loose consistency of the state on the mqtt broker with the state of the gpio but you win the ability to operate the relay even without wifi connection or working broker.
+2. Rule triggers when the hardware button is pressed. Depending on the current state of the relay it will send a /set command to the mqtt broker. This will then trigger rule #1. If you prefer immediate response of the relay you can set the GPO here too but you may loose consistency of the state on the mqtt broker with the state of the gpio but you win the ability to operate the relay even without wifi connection or working broker.
 
 ```
 on Relais#switch do
@@ -63,6 +67,8 @@ on Button#State=1 do
  endif
 endon
 ```
+
+To build a remote switch you will need the same configuration but without setting the GPIO (as it will be on a remote ESP). Will publish a remote wall controller as soon it is finished.
 
 # check the log
 
@@ -121,6 +127,10 @@ It is quite easy to use any homie switch in Node-RED.
 
 ![demo flow](./screenshots/Node-RED.png)
 
-it is possible to connect a button or a switch to the homie node. if you want to use the switch you have to update to version 0.0.6 of the homie node.
+It is possible to connect a button or a switch to the homie node. If you want to use the button you have to update to version 0.0.6 of the homie node to handle boolean values correctly.
 
 you can find a demo flow here `demo-flow.json`
+
+# changelog
+
+- **0.0.2** some typos fixed
