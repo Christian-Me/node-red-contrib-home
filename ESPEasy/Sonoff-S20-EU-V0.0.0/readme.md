@@ -2,9 +2,9 @@
 
 version 0.0.2
 
-The sonoff S20 is a nice cheap wall plug including an ESP8266. It comes (currently) with only 1MB of flash memory which makes OTA updates difficult. For OTA you need minimum of twice the size of your firmware to do OTA updates. But as some of the flash is needed for other things even 512kb is too  (604Kb is the absolute maximum for the two step method)
+The sonoff S20 is a nice cheap wall plug including an ESP8266. It comes (currently) with only 1MB of flash memory which makes OTA updates difficult. For OTA you need minimum of twice the size of your firmware to do OTA updates. But as some of the flash is needed for other things even 512kb will be too big (604Kb is the absolute maximum for the two step method)
 
-The current firmware if 611kb - So I have to strip down it a little bit more.... sorry
+The current firmware if 607kb - So I have to strip down it a little bit more.... sorry
 
 # configure ESPeasy
 ## main
@@ -12,7 +12,7 @@ parameter        |description
 -----------------|--------------------------
 Unit Name:|give your device a nice **UNIQUE** name (will appear as $device inside the homie tree) so no spaces and only - or _ is suggested here (even when MQTT is not so restrictive)
 Unit Number:| optional
-Append Unit Number to hostname:| uncheck because the paramter is optional
+Append Unit Number to hostname:| unchecked because the paramter is optional
 WIFI Settings| self explanatory
 IP Settings| if you don`t use DHCP make sure the IP Address is not in use otherwise you have to use the serial console to fix that
 
@@ -25,7 +25,7 @@ parameter        |description
 -----------------|--------------------------
 Controller IP:| the IP Address of your MQTT broker (or URL)
 Controller Port:| usual 1884
-Controller User / Password: | if nessesary
+Controller User / Password: | if necessary
 Controller Subscribe: | homie/%sysname%/+/+/set
 Controller Publish: | homie/%sysname%/%tskname%/%valname%
 Controller lwl topic: | homie/%sysname%/$state
@@ -39,7 +39,11 @@ The subscribe pattern makes sure that ESP Easy only receives commands this keeps
 
 use inverse LED if you like the LED flashes to be visible
 ## Devices
+
 For the relay you need the homie receiver plugin
+
+*Sorry for the typo of "Relais" this is the German spelling of "Relay" find/replace if you wish ;)*
+
 ![homie receiver](./screenshots/devices.png)
 
 For the hardware button you need a switch input
@@ -47,7 +51,7 @@ For the hardware button you need a switch input
 set the debounce value what fits best for you (10-100ms)
 
 ## Rules
-You need two rules: 1
+You need two rules:
 1. will set the GPIO according to the boolean value received and acknowledge the new value with HomieValueSet
 2. Rule triggers when the hardware button is pressed. Depending on the current state of the relay it will send a /set command to the mqtt broker. This will then trigger rule #1. If you prefer immediate response of the relay you can set the GPO here too but you may loose consistency of the state on the mqtt broker with the state of the gpio but you win the ability to operate the relay even without wifi connection or working broker.
 
@@ -126,6 +130,8 @@ It is quite easy to use any homie switch in Node-RED.
 **Always check that you don't pass the input message to the output or you get an infinit loop!**
 
 ![demo flow](./screenshots/Node-RED.png)
+
+If you have more than one ui-node connected as in the example you see both are displaying the correct value without being connected. They even could sit on different instances or machines.  So it is not necessary and not recommended to store the state in Node-RED. Even if you press the hardware button during Node-RED is offline it will come up with the actual state as soon it gets online again. This is the nature of MQTT + retained messages to let all subscribers be always up to date.
 
 It is possible to connect a button or a switch to the homie node. If you want to use the button you have to update to version 0.0.6 of the homie node to handle boolean values correctly.
 
