@@ -1,0 +1,99 @@
+{
+    "topic": "Dusche/window/1/Dusche/STATE",
+    "payload": true,
+    "ccu": "192.168.2.5",
+    "iface": "BidCos-RF",
+    "device": "NEQ0066218",
+    "deviceName": "window/1/Dusche",
+    "deviceType": "HM-Sec-SCo",
+    "channel": "NEQ0066218:1",
+    "channelName": "window/1/Dusche",
+    "channelType": "SHUTTER_CONTACT",
+    "channelIndex": 1,
+    "datapoint": "STATE",
+    "datapointName": "BidCos-RF.NEQ0066218:1.STATE",
+    "datapointType": "BOOL",
+    "datapointMin": false,
+    "datapointMax": true,
+    "datapointDefault": false,
+    "datapointControl": "DOOR_SENSOR.STATE",
+    "value": true,
+    "valuePrevious": false,
+    "valueStable": true,
+    "rooms": [
+        "Dusche"
+    ],
+    "room": "Dusche",
+    "functions": [
+        "Verschluss"
+    ],
+    "function": "Verschluss",
+    "ts": 1584081360241,
+    "tsPrevious": 1584080182124,
+    "lc": 1584081360241,
+    "change": true,
+    "cache": false,
+    "uncertain": false,
+    "stable": true,
+    "_msgid": "9e27af8c.81f9",
+    "settingsContext": "mySettings",
+    "roomsContext": "rooms",
+    "roomContext": "heating.rooms",
+    "periodsContext": "heating.periods",
+    "deviceContext": {
+        "HM-CC-RT-DN": "heating.devices",
+        "HM-Sec-SCo": "windows.devices",
+        "HMIP-PS": "sockets.devices",
+        "HMIP-PSM": "sockets.devices"
+    }
+}
+
+{
+    "topic": "Dusche/window/1/Dusche/LOWBAT",
+    "payload": true,
+    "ccu": "192.168.2.5",
+    "iface": "BidCos-RF",
+    "device": "NEQ0066218",
+    "deviceName": "window/1/Dusche",
+    "deviceType": "HM-Sec-SCo",
+    "channel": "NEQ0066218:1",
+    "channelName": "window/1/Dusche",
+    "channelType": "SHUTTER_CONTACT",
+    "channelIndex": 1,
+    "datapoint": "LOWBAT",
+    "datapointName": "BidCos-RF.NEQ0066218:1.LOWBAT",
+    "datapointType": "BOOL",
+    "datapointMin": false,
+    "datapointMax": true,
+    "datapointDefault": false,
+    "datapointControl": "NONE",
+    "value": true,
+    "valuePrevious": false,
+    "valueStable": true,
+    "rooms": [
+        "Dusche"
+    ],
+    "room": "Dusche",
+    "functions": [
+        "Verschluss"
+    ],
+    "function": "Verschluss",
+    "ts": 1584081360242,
+    "tsPrevious": 1584081359707,
+    "lc": 1584081360242,
+    "change": true,
+    "cache": false,
+    "uncertain": false,
+    "stable": true,
+    "_msgid": "96d68272.303f3",
+    "settingsContext": "mySettings",
+    "roomsContext": "rooms",
+    "roomContext": "heating.rooms",
+    "periodsContext": "heating.periods",
+    "deviceContext": {
+        "HM-CC-RT-DN": "heating.devices",
+        "HM-Sec-SCo": "windows.devices",
+        "HMIP-PS": "sockets.devices",
+        "HMIP-PSM": "sockets.devices"
+    }
+}

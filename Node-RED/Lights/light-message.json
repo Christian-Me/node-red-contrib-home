@@ -1,0 +1,34 @@
+{
+    "payload": true,
+    "topic": "mySettings.light.devices.defaultSwitch",
+    "socketid": "cV-Fh027FSVgWEy1AAAB",
+    "_msgid": "b34ec7f0.89aa38",
+    "property": {
+        "name": "Nachttischleuchte Chris",
+        "uuid": "65911eb5-032b-17e9-822e-a2df695f158f",
+        "type": "rgb-w",
+        "system": "milight",
+        "room": "320a92fe-bbb8-7e15-ca1d-afa158c9e30b",
+        "note": "",
+        "defaultDimmer": 100,
+        "defaultColor": {
+            "h": 0,
+            "s": 1,
+            "v": 1
+        },
+        "defaultswitch": false,
+        "groupMembers": {
+            "name": "groupMembers",
+            "uiPointer": 0,
+            "list": []
+        },
+        "sceneMembers": {
+            "name": "sceneMembers",
+            "uiPointer": 0,
+            "list": []
+        },
+        "defaultSwitch": true
+    },
+    "action": "updateUI",
+    "_event": "node:1581eb1f.859c75"
+}

@@ -1,0 +1,33 @@
+{
+    "homie": {
+        "nodeId": "Thermostat-01",
+        "$name": "Thermostat-Arbeitszimmer",
+        "$type": "homematic thermostat",
+        "$properties": [
+            {
+                "propertyId": "currentTemperature",
+                "$name": "current temperature",
+                "$datatype":"float",
+                "$settable":false,
+                "$retained": false,
+                "$unit": "°C"
+            },
+            {
+                "propertyId": "targetTemperature",
+                "$name": "target temperature",
+                "$datatype":"float",
+                "$settable":true,
+                "$retained": true,
+                "$unit": "°C"
+            },
+            {
+                "propertyId": "currentValve",
+                "$name": "current valve state",
+                "$datatype":"float",
+                "$settable":false,
+                "$retained": false,
+                "$unit": "%"
+            }
+        ]
+    }
+}
