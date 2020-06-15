@@ -1,0 +1,28 @@
+on run do
+  HomieValueSet,2,1,%eventvalue1%
+  HomieValueSet,2,2,%eventvalue2%
+
+  LCDCMD,on
+  lcdcmd,clear
+  lcd,1,1,Ventil: %eventvalue2%
+  lcd,2,1,Zeit: %eventvalue1%
+  lcd,1,14,EIN
+
+  Let,1,[Valves#number]    // for PCF8575
+  Let,2,[Valves#time]*60   // in seconds
+  HomieValueSet,2,3,[var#2]
+
+  pcfgpio,[var#1],0
+  timerSet,1,[var#2]
+  timerSet,4,10
+endon
+
+on Rules#Timer=4 do // update Timer every 10sec
+  Let,3,[Valves#runTime]-10
+  if [var#3]>0
+   HomieValueSet,2,3,[var#3]
+   LCDCMD,on
+   lcd,2,12,([Valves#runTime]) 
+   timerSet,4,10   
+  endif
+endon

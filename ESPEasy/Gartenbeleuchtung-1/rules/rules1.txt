@@ -1,0 +1,30 @@
+on System#Boot do
+ GPIO,4,1
+ GPIO,5,1
+ GPIO,12,1
+ GPIO,13,1
+endon
+
+on relay1 do
+ Let 1,%eventvalue1%-1
+ GPIO,4,[var#1]
+ HomieValueSet,1,1,%eventvalue2%
+endon
+
+on relay2 do
+ Let 1,%eventvalue1%-1
+ GPIO,5,[var#1]
+ HomieValueSet,1,2,%eventvalue2%
+endon
+
+on relay3 do
+ Let 1,%eventvalue1%-1
+ GPIO,12,[var#1]
+ HomieValueSet,1,3,%eventvalue2%
+endon
+
+on relay4 do
+ Let 1,%eventvalue1%-1
+ GPIO,13,[var#1]
+ HomieValueSet,1,4,%eventvalue2%
+endon

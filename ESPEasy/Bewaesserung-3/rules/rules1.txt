@@ -1,0 +1,59 @@
+on run do
+  HomieValueSet,2,1,%eventvalue1%
+  HomieValueSet,2,2,%eventvalue2%
+
+  Let,2,[Valves#time]*60   // in seconds
+  HomieValueSet,2,3,[var#2]
+
+  GPIO,12,1
+  timerSet,1,[var#2]
+  timerSet,4,10
+  HomieValueSet,1,1, // clear SYSTEN/cmd
+endon
+
+on number do
+  if %eventvalue1%=1
+
+   Let,2,[Valves#time]*60   // in seconds
+   HomieValueSet,2,3,[var#2]
+
+   GPIO,12,1
+   timerSet,1,[var#2]
+   timerSet,4,10
+  else
+   GPIO,12,0
+   HomieValueSet,2,3,0
+   timerSet,1,0
+   timerSet,4,0
+  endif
+
+  HomieValueSet,2,2,%eventvalue2%
+endon
+
+On Rules#Timer=1 do  //close valve
+  HomieValueSet,2,4,[Valves#number]
+  HomieValueSet,2,2,aus
+  HomieValueSet,2,3,0  
+  Event,closeAllValves
+endon
+
+on Rules#Timer=4 do
+  Let,3,[Valves#runTime]-10
+  if [var#3]>0
+   HomieValueSet,2,3,[var#3]
+   timerSet,4,10
+  endif
+endon
+
+on closeAllValves do
+  GPIO,12,0
+  timerSet,1,0
+  timerSet,4,0
+  HomieValueSet,2,2,aus
+  HomieValueSet,2,3,0
+  HomieValueSet,2,4,[Valves#number]
+endon
+
+on time do
+  HomieValueSet 2,1,%eventvalue1%
+endon

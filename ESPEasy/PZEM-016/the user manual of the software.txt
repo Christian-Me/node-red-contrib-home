@@ -1,0 +1,20 @@
+The user manual of the software
+
+1.Before use it, please click the ¡¾run¡¿document to login, after login successfully, you can use the software.
+
+2.In all parameter setting,if the color is gray,that means it can't be amend, other color means it can be amend. 
+
+3.At present,this software is standalone version, not support Multimachine communication,that means if you want to 
+  use more than one module at the same time, you should set the address of each module in advance, then use the 
+  address to distinguish the termianl box when read or set the data.  
+
+4.Power alarm way is: the power data display become to read in the software.There is no power alarm signal output 
+  driving port in the module PCB. 
+
+5.Please be with caution to use the calibration function in the software!
+  The module has been calibrated at least twice with the professional equipment before delivery, so the data will
+  has problem in general.
+  If it is must be calibrated because of the defective product,the calibrationg password is: PZEM014/6
+  Calibration condition:
+  PZEM-014: VOLTAGE:220v,CURRENT:1A
+  PZEM-014: VOLTAGE:220v,CURRENT:10A

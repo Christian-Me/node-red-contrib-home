@@ -1,6 +1,7 @@
 # systlog server
 
-Just finished a syslog server for the node-red dashboard. It makes use of ui-table. I hope somebody finds it useful. It is build around ui-table and a subflow I use for all kinds of tables in my projects.
+A syslog server for the node-red dashboard. It can used for all kinds of "log" based event tracking.
+The flow makes use of ui-table. I hope somebody finds it useful. The central part is a subflow I use for all kinds of tables in my projects helping to manange table content by sending commands updating sigle cells or tables instead updating the complete table.
 
 ![demo](./screenshots/demo.gif)
 
@@ -28,5 +29,6 @@ You find the syslog.json here in this directory
 * I used the syslog input node (https://flows.nodered.org/node/node-red-contrib-syslog-input)
 * the table is formatted by a json configured in ui-table handler (more info see tabulator docs)
 * ui-table filters only apply to existing data. New rows will appear unfiltered. Don`t know right now to solve this right now.
+* More information how to use the ui-table helper can be fount in the info tab.
 
 ![config](./screenshots/config.png) 

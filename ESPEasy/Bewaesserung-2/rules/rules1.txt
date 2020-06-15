@@ -1,0 +1,60 @@
+on System#Boot
+  lcdcmd,on
+  lcdcmd,clear
+  lcd,1,1,%sysname%
+endon 
+
+on WiFi#Connected
+  lcdcmd,on
+  lcdcmd,clear
+  lcd,1,1,%ip%
+  lcd,2,1,[System_Info#rssi] dB
+  timerSet,3,30
+endon
+
+On Rules#Timer=1 do  //close valve
+  lcdcmd,on
+  timerSet,2,180 // display delay
+  lcd,1,14,AUS
+  HomieValueSet,2,4,[Valves#number]
+  HomieValueSet,2,2,aus
+  HomieValueSet,2,3,0  
+  Event,closeAllValves
+endon
+
+On Rules#Timer=2 do  //Screen Timeout
+  lcdcmd,off
+endon
+
+On Rules#Timer=3 do  //Clear Splash
+  lcdcmd,on
+  timerSet,2,180 // display delay
+  lcdcmd,clear
+  lcd,1,1,Ventil:
+  lcd,2,1,Zeit:
+endon
+
+on closeAllValves do
+  lcdcmd,on
+  timerSet,2,180 // display delay
+  lcd,1,14,AUS        
+  pcfgpio,1,1
+  pcfgpio,2,1
+  pcfgpio,3,1
+  pcfgpio,4,1
+  pcfgpio,5,1
+  pcfgpio,6,1
+  pcfgpio,7,1
+  pcfgpio,8,1
+  timerSet,2,180 // display delay
+  timerSet,1,0
+  timerSet,4,0
+endon
+
+on time do
+  HomieValueSet 2,1,%eventvalue1%
+endon
+
+on number do
+  HomieValueSet 2,2,%eventvalue1%
+endon

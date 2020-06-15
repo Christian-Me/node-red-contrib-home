@@ -1,0 +1,10 @@
+on Relay#ventil do
+
+ if %eventvalue1% = 1 do
+  PCFGPIO,1,1
+ else
+  PCFGPIO,1,0
+ endif
+
+ HomieValueSet,1,1,%eventvalue2%
+endon
